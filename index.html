@@ -407,7 +407,7 @@
           </p>
           <div class="hero-actions">
             <a href="#products" class="cta-btn">تسوق الآن</a>
-            <a href="https://wa.me/201555420842 target="_blank" class="ghost-btn">اطلب واتساب</a>
+            
           </div>
         </div>
 
@@ -541,47 +541,36 @@ Every piece is crafted to elevate your style and add a distinctive touch to your
         <div class="checkout-box reveal-left">
           <h3>Checkout</h3>
           <p></p>
+<form name="order" method="POST" data-netlify="true">
 
-          <form id="checkoutForm" class="checkout-form">
-            <div class="field">
-              <label>الاسم الكامل</label>
-              <input type="text" id="customerName" placeholder="اكتب الاسم" required>
-            </div>
-            <div class="field">
-              <label>رقم الموبايل</label>
-              <input type="tel" id="customerPhone" placeholder="01xxxxxxxxx" required>
-            </div>
-            <div class="field full">
-              <label>العنوان</label>
-              <input type="text" id="customerAddress" placeholder="المحافظة - المنطقة - الشارع" required>
-            </div>
-            <div class="field">
-              <label>المحافظة</label>
-              <select id="customerCity">
-                <option value="القاهرة">القاهرة</option>
-                <option value="الجيزة">الجيزة</option>
-                <option value="الفيوم">الفيوم</option>
-                <option value="الإسكندرية">الإسكندرية</option>
-                <option value="غير ذلك">غير ذلك</option>
-              </select>
-            </div>
-            <div class="field">
-              <label>طريقة الدفع</label>
-              <select id="paymentMethod">
-                <option value="Cash on Delivery">الدفع عند الاستلام</option>
-                <option value="Vodafone Cash">فودافون كاش</option>
-                <option value="Instapay">إنستا باي</option>
-              </select>
-            </div>
-            <div class="field full">
-              <label>ملاحظات الطلب</label>
-              <textarea id="customerNotes" placeholder="لون معين - مقاس - هدية - أي ملاحظة"></textarea>
-            </div>
-            <div class="field full">
-              <button type="submit" class="cta-btn">تأكيد الطلب</button>
-            </div>
-          </form>
-          <div class="status-box" id="checkoutStatus">تم تجهيز الطلب. راجع الملخص واضغط إرسال واتساب.</div>
+  <!-- مهم جداً -->
+  <input type="hidden" name="form-name" value="order">
+
+  <!-- الاسم -->
+  <input type="text" name="name" placeholder="الاسم الكامل" required>
+
+  <!-- رقم الموبايل -->
+  <input type="tel" name="phone" placeholder="رقم الموبايل" required>
+
+  <!-- العنوان -->
+  <input type="text" name="address" placeholder="العنوان" required>
+
+  <!-- المحافظة -->
+  <input type="text" name="city" placeholder="المحافظة">
+
+  <!-- طريقة الدفع -->
+  <select name="payment">
+    <option value="cash">الدفع عند الاستلام</option>
+  </select>
+
+  <!-- ملاحظات -->
+  <textarea name="notes" placeholder="ملاحظات الطلب"></textarea>
+
+  <!-- زرار الطلب -->
+  <button type="submit">تأكيد الطلب</button>
+
+</form>
+          <div class="status-box" id="checkoutStatus">راجع بياناتك ثم اضغط "تأكيد الطلب" لإتمام الطلب</div>
         </div>
 
         <div class="checkout-box reveal-scale">
@@ -593,7 +582,7 @@ Every piece is crafted to elevate your style and add a distinctive touch to your
               <span>الإجمالي</span>
               <span id="checkoutTotal">0 EGP</span>
             </div>
-            <button class="ghost-btn" id="sendWhatsappOrderBtn">إرسال الطلب على واتساب</button>
+            <button class="ghost-btn" id="sendWhatsappOrderBtn">إتمام الطلب</button>
           </div>
         </div>
       </div>
@@ -642,8 +631,7 @@ Every piece is crafted to elevate your style and add a distinctive touch to your
   </div>
 
   <script>
-    const whatsappNumber = '201555420842';
-    const instagramUrl = 'https://instagram.com/axen.accessories';
+   const instagramUrl = 'https://instagram.com/axen.accessories';
 
     /* حط صورك الحقيقية هنا لما تجهزها */
     const products = [
