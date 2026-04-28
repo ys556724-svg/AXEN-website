@@ -1038,11 +1038,16 @@ Every piece is crafted to elevate your style and add a distinctive touch to your
     renderCheckoutSummary();
     observeReveals();
 
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.getElementById('loader').classList.add('hide');
-      }, 1100);
-    });
-  </script>
+   
+window.addEventListener("load", function() {
+  const loader = document.getElementById("loader");
+  if (loader) {
+    loader.style.opacity = "0";
+    setTimeout(() => {
+      loader.style.display = "none";
+    }, 500);
+  }
+});
+</script>
 </body>
 </html>
